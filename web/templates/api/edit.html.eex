@@ -1,0 +1,6 @@
+<h2>Edit api</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: api_path(@conn, :update, @api) %>
+
+<%= link "Back", to: api_path(@conn, :index) %>

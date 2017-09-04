@@ -1,0 +1,34 @@
+<h2>Listing apis</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Hosts</th>
+      <th>Uris</th>
+      <th>Methods</th>
+      <th>Backend url</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for api <- @apis do %>
+    <tr>
+      <td><%= api.name %></td>
+      <td><%= if api.hosts == nil, do: '', else: Enum.join(api.hosts, ", ") %></td>
+      <td><%= if api.uris == nil, do: '', else: Enum.join(api.uris, ", ") %></td>
+      <td><%= if api.methods == nil, do: '', else: Enum.join(api.methods, ", ") %></td>
+      <td><%= api.backend_url %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: api_path(@conn, :show, api), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: api_path(@conn, :edit, api), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: api_path(@conn, :delete, api), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New api", to: api_path(@conn, :new) %>

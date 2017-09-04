@@ -1,2 +1,1 @@
-# argonath
-Argonath API Gateway
+# Argonath API Gateway

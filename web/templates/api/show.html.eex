@@ -1,0 +1,33 @@
+<h2>Show api</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @api.name %>
+  </li>
+
+  <li>
+    <strong>Hosts:</strong>
+    <%= if @api.hosts == nil, do: '', else: Enum.join(@api.hosts, ", ") %>
+  </li>
+
+  <li>
+    <strong>Uris:</strong>
+    <%= if @api.uris == nil, do: '', else: Enum.join(@api.uris, ", ") %>
+  </li>
+
+  <li>
+    <strong>Methods:</strong>
+    <%= if @api.methods == nil, do: '', else: Enum.join(@api.methods, ", ") %>
+  </li>
+
+  <li>
+    <strong>Backend url:</strong>
+    <%= @api.backend_url %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: api_path(@conn, :edit, @api) %>
+<%= link "Back", to: api_path(@conn, :index) %>

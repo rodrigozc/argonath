@@ -1,0 +1,44 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :name, class: "control-label" %>
+    <%= text_input f, :name, class: "form-control" %>
+    <%= error_tag f, :name %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :hosts, class: "control-label" %>
+    <%= array_input f, :hosts %>
+    <%= array_add_button f, :hosts %>
+    <%= error_tag f, :hosts %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :uris, class: "control-label" %>
+    <%= array_input f, :uris %>
+    <%= array_add_button f, :uris %>
+    <%= error_tag f, :uris %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :methods, class: "control-label" %>
+    <%= array_input f, :methods %>
+    <%= array_add_button f, :methods %>
+    <%= error_tag f, :methods %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :backend_url, class: "control-label" %>
+    <%= text_input f, :backend_url, class: "form-control" %>
+    <%= error_tag f, :backend_url %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>
